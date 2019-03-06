@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.box {
+				display: flex;
+				
+				justify-content: space-between;
+				width: 30%;
+				height: 60%;
+				margin: 0 auto;
+			}
+
+			.card {
+				width: 30%;
+				height: 60%;
+				
+				border: 1px solid #EEEEEE;
+				border-radius: 10px;
+				margin: 0 auto;
+			}
+
+			.logo {
+				display: flex;
+				justify-content: space-between;
+			}
+			.left {
+				display: flex;
+			}
+			.picture{
+				margin-top:10px;
+				margin-left:10px;
+			}
+
+			.picture img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+
+			}
+
+			.des {
+				margin-left: 10px;
+
+			}
+			.right{
+				margin-top:15px;
+				margin-right:10px;
+				
+			}
+			.a{
+				color:#333333;
+			}
+				
+			.b{
+				color:#008000;
+			}
+			.down{
+				width: 8%;
+				height: 60%;
+				margin: 0 auto;
+				border: 1px solid #EEEEEE;
+				border-radius: 10px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="app">
+			<div class="container">
+				<div class="box">
+					<h3>推荐作者</h3>
+					<p class="des"><i class="icon-spinner icon-large"></i>换一批</p>
+				</div>
+                <!-- book的遍历-->
+				<div class="card" v-for="book in books">
+               
+					<div class="logo">
+
+						<div class="left">
+							<div class="picture">
+								<img :src="book.cover">
+							</div>
+							<div class="wenzi">
+								<p class="des">{{book.author}}</p>
+								<p class="des">{{book.decription}}</p>
+							</div>
+						</div>
+						<div class="right">
+							<p v-if="book.care" class="a"><i class="icon-ok icon-large"></i>已关注</p>
+							<p v-else class="b"><i class="icon-plus"></i>关注</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="down">
+					<p>查看全部<i class="icon-angle-right"></i></p>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//实例化一个vue对象
+			var app = new Vue({
+				el: '#app',
+				data: {
+					show: true,
+					books: [{
+							cover: 'img/111.jpeg',
+							author: '胡七筒',
+							decription: '写了325k字·11k喜欢',
+							care: true
+						},
+						{
+							cover: 'img/222.jpeg',
+
+							author: '汪波_偶遇科学',
+							decription: '写了302.1k字·1.9k喜欢',
+							care: false
+						},
+						{
+							cover: 'img/333.jpg',
+
+							author: '梅拾璎',
+							decription: '写了269.3k字·23.4k喜欢',
+							care: true
+						},
+						{
+							cover: 'img/444.jpg',
+
+
+							author: '徐林Grace',
+							decription: '写了677.9k字·5.5k喜欢',
+							care: false
+						},
+						{
+							cover: 'img/555.jpg',
+
+
+							author: '行距版君',
+							decription: '写了535.1k字·51.8喜欢',
+							care: false
+						},
+
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -2,31 +2,30 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>vue-bind</title>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
 	<body>
 		<div id="app">
-			<!-- <input type="text"  v-model="name" placeholder="请输入" /> -->
 			<p>姓名：{{name}}</p>
 			<input type="text" v-bind:value="description" />
 			<a v-bind:href="url">{{website}}</a>
 			<img :src="avatar">
-		</div>
-			<script type="text/javascript" charset="UTF-8">
-				var app =new Vue({
+		</div>	
+		<script  type="text/javascript" charset="utf-8">
+				//实例化一个Vue对象
+				var app = new Vue({
 					el:'#app',
-					data:{
-						name:'尤雨溪',
 					
-						description: 'Vue.js的创立者',
-						
-						website: 'Vue.js官网',
-						url: 'https://cn.vuejs.org/',
-						avatar; 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=c08a0c60a844ad342ebf8081e8996bc9/4afbfbedab64034f29596c8ba6c379310b551da2.jpg'
-
+					data:{
+						name:'弗雷德里克·巴克曼 Fredrik Backman',
+						description:'世间的一切都有标价，除了时间，一秒就是一秒，谁都无法讨价还价。',
+						website:'https://book.douban.com/subject/30390651/?icn=index-topchart-subject',
+						url:'https://book.douban.com/subject/30390651/?icn=index-topchart-subject',
+						avatar:'https://img1.doubanio.com/view/subject/l/public/s29951659.jpg',
 					}
 				})
+				
 			</script>
 	</body>
 </html>
