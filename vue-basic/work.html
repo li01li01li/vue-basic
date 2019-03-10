@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			
+
+			.da {
+				width: 1000px;
+				height: 1000px;
+				
+			}
+			.card {
+
+				width: 500px;
+				height: 320px;
+				border: 1px solid #EEEEEE;
+				border-radius: 10px;
+				border-color: #008000;
+				margin-left: 1020px;
+				margin-top: -500px;
+
+
+			}
+
+			.font {
+				font-size: 32px;
+				font-family: 华文行楷;
+				color: lightblue;
+
+			}
+
+			.font-style {
+				font-size: 20px;
+				font-family: 华文行楷;
+				color: #333333;
+				margin-left: 15px;
+
+			}
+
+			.picture {
+				width: 800px;
+				height: 700px;
+				margin-left: 50px;
+				margin-top: -160px;
+			}
+			
+			.p{
+				border-radius: 10px;
+				width: 93%;
+				height: 95%;
+			}
+
+			.down {
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			.right{
+				margin-left: 1020px;
+				margin-top: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div clas="container">
+
+
+
+				<div class="font">
+					<h2>The diary of your life！Record your every moment</h2>
+					<hr>
+					<div class="right">
+					<h1>Writing,from now on!</h1>	
+					</div>
+				</div>
+
+				<div class="da">
+					<div class="picture" >
+						<img src="img/mybook.jpg" class="p">
+					</div>
+                  
+					
+					
+
+					<div class="card">
+						<p class="font-style">你的名字：
+							<input type="name" class="font-style" v-model="name">
+						</p>
+						<p class="font-style">你的身份：
+							<input type="radio" id="male" value="先生" v-model="sex">
+							<label for="male">先生</label>
+							<input type="radio" id="female" value="女士" v-model="sex">
+							<label for="female">女士</label>
+						</p>
+						<p class="font-style">你的密码：
+
+							<input type="password" id="password" value="password" v-model="password" class="font-style">
+
+						</p>
+						<p class="font-style">确定你的密码：
+							<input type="password" id="password1" value="password1" v-model="password1" class="font-style">
+
+						</p>
+
+						<p class="font-style">你的爱好：
+							<input type="checkbox" id="dayouxi" value="打游戏" v-model="checkedNames">
+							<label for="dayouxi">打游戏</label>
+							<input type="checkbox" id="tingyinyue" value="听音乐" v-model="checkedNames">
+							<label for="tingyinyue">听音乐</label>
+							<input type="checkbox" id="kanshipin" value="看视频" v-model="checkedNames">
+							<label for="kanshipin">看视频</label>
+							<input type="checkbox" id="qita" value="其他" v-model="checkedNames">
+							<label for="qita">其他</label>
+						</p>
+						<br>
+						
+						
+						<div class="down">
+							<strong><button type="button" @click="commit" class="font-style">注册</button></strong>
+						</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+
+			</div>
+
+		</div>
+		
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+
+				data: {
+					name: '',
+					sex: '先生',
+					text: '',
+					password: '',
+					password1: '',
+					checkedNames: [],
+                    
+				},
+				methods: {
+					commit: function() {
+						var name = this.name;
+						var password = this.password;
+						var password1 = this.password1;
+						if (name == '') {
+							alert("请输入账号");
+
+						} else if (password !== password1) {
+							alert("两次输入的密码不一致");
+						} else if (name == '' || password == '' || password1 == '') {
+							alert("账号或密码为空！");
+						} else {
+							alert("尊敬的" + this.name + this.sex + ",您好！" + "\n 我是布可，您的Writing小助手\n在这里，我会悉心的记录下您的点点滴滴\n首先，您的密码是：" + this.password +
+								"请牢记！" + "\n其次，您的爱好是：" + this.checkedNames);
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -43,7 +43,8 @@
 					<!-- 显示图书名称 -->
 					<h4>{{book.name}}</h4>
 					<!-- 绑定图书封面属性 -->
-					<img :src="cover">
+					<img :src="book.cover" >
+					
 					<!-- 绑定like的值显示不同的文字 -->
 					<p v-if="book.like">喜欢</p>
 					<p v-else>不喜欢</p>
@@ -52,21 +53,21 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			var app =new Vue({
+			var app =new Vue ({
 				el:'#app',
 				data:{
 					show: true,
-					book:[
+					books:[
 						{
 						name: '时间的礼物',
 						cover: 'img/book1.jpg',
-						like: false,
+						like: false
 						
 					}
 					]
 				}
 			})
-			</div>
+			
 		</script>
 		
 	</body>
