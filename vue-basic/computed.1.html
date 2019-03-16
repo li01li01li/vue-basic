@@ -6,18 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<style type="text/css">
-			.container{
+			.container {
 				display: flex;
 				flex-direction: column;
 				width: 95%;
 				margin: 0 auto;
-				
-				
 			}
-			.item{
-				
+
+			.item {
+
 				display: flex;
-				border:1px solid#008000;
+				border: 1px solid#008000;
 				border-radius: 10px;
 				width: 300px;
 				height: 50px;
@@ -29,35 +28,43 @@
 				padding-left: 10px;
 				padding-right: 10px;
 			}
-			.item-id{
+
+			.item-id {
 				flex: 1 1 10%;
 			}
-			.item-name{
+
+			.item-name {
 				flex: 1 1 30%;
 			}
+
 			.item-img {
 				flex: 1 1 20%
-				
 			}
+
 			.item-img img {
 				margin: 0 auto;
 				width: 80%;
 				height: 100%;
 			}
-			.item-price{
+
+			.item-price {
 				flex: 1 1 20%;
 			}
-			.count{
+
+			.count {
 				flex: 1 1 30%;
 			}
-			.goods-count{
+
+			.goods-count {
 				width: 20px;
 			}
+
 			.settlement {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 			}
+
 			.btn {
 				width: 100px;
 				height: 30px;
@@ -68,35 +75,33 @@
 				color: #FFF;
 				font-size: 16px;
 			}
+
 			a {
-			text-decoration: none
+				text-decoration: none
 			}
-			
 		</style>
 	</head>
 	<body>
-		<div id= "app">
+		<div id="app">
 			<div class="container">
 				<div class="item" v-for="goods in goodsList">
 					<div class="item-id">
-						{{goods.id}}
-					</div>					
-						
+						 {{goods.id}}
+					</div>
 					<div class="item-name">
 						<a :href="goods.super">
-						{{goods.name}}
+						 {{goods.name}}
 						</a>
 					</div>
 					<div class="item-img">
-						<img :src="goods.imgurl">
+						 <img :src="goods.imgurl">
 					</div>
 					<div class="item-price">
-						{{goods.price}}
+						 {{goods.price}}
 					</div>
-					
 					<div class="count">
 						<button type="button" @click="goods.count-=1" :disabled="goods.count===0">-</button>
-						<input type="text" class="goods-count" v-model="goods.count" value="1"/>
+						<input type="text" class="goods-count" v-model="goods.count" value="1" />
 						<button type="button" @click="goods.count+=1">+</button>
 					</div>
 				</div>
@@ -110,51 +115,50 @@
 				</div>
 			</div>
 		</div>
-			<script type= "text/javascript">
-				var app =new Vue({
-					el:'#app',
-					data:{	
-						goodsList:[
-							{
-								id:1,
-								name:'华为畅享9 Plus',
-								super:'https://detail.tmall.com/item.htm?spm=a230r.1.14.8.15586fbexrXvpF&id=579484379629&cm_id=140105335569ed55e27b&abbucket=9&sku_properties=10004:653780895;5919063:6536025',
-							    imgurl:'img/huawei.jpg',
-								price:1399,
-								count:1
-							},
-							{
-								id:2,
-								name:'iphone Xs',
-								super:'https://detail.tmall.com/item.htm?spm=a230r.1.14.27.75716126vsOfQe&id=577261277057&ns=1&abbucket=9&sku_properties=10004:709990523;5919063:6536025',
-								imgurl:'img/iponeXs.jpg',
-								price:7899,
-								count:1
-							},								
-							{
-								id:3,
-								name:'魅族16th Plus',
-								super:'https://detail.tmall.com/item.htm?spm=a230r.1.14.13.577d7ffciVpojA&id=574192065363&cm_id=140105335569ed55e27b&abbucket=9&sku_properties=10004:827902415;5919063:6536025',
-								imgurl:'img/meizu16.jpg',
-									price:2998,
-									count:1
-							}
-						],
-						show: false
-					},
-					methods:{
-						
-					},
-					computed:{
-						totalPrice:function(){
-							var totalPrice = 0;
-							var len = this.goodsList.length;
-							for(var i =0;i < len; i++){
-								totalPrice += this.goodsList[i].price * this.goodsList[i].count;
-							}
-							return totalPrice;
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					goodsList: [{
+							id: 1,
+							name: '华为畅享9 Plus',
+							super: 'https://detail.tmall.com/item.htm?spm=a230r.1.14.8.15586fbexrXvpF&id=579484379629&cm_id=140105335569ed55e27b&abbucket=9&sku_properties=10004:653780895;5919063:6536025',
+							imgurl: 'img/huawei.jpg',
+							price: 1399,
+							count: 1
 						},
-						settlement: function() {
+						{
+							id: 2,
+							name: 'iphone Xs',
+							super: 'https://detail.tmall.com/item.htm?spm=a230r.1.14.27.75716126vsOfQe&id=577261277057&ns=1&abbucket=9&sku_properties=10004:709990523;5919063:6536025',
+							imgurl: 'img/iponeXs.jpg',
+							price: 7899,
+							count: 1
+						},
+						{
+							id: 3,
+							name: '魅族16th Plus',
+							super: 'https://detail.tmall.com/item.htm?spm=a230r.1.14.13.577d7ffciVpojA&id=574192065363&cm_id=140105335569ed55e27b&abbucket=9&sku_properties=10004:827902415;5919063:6536025',
+							imgurl: 'img/meizu16.jpg',
+							price: 2998,
+							count: 1
+						}
+					],
+					show: false
+				},
+				methods: {
+
+				},
+				computed: {
+					totalPrice: function() {
+						var totalPrice = 0;
+						var len = this.goodsList.length;
+						for (var i = 0; i < len; i++) {
+							totalPrice += this.goodsList[i].price * this.goodsList[i].count;
+						}
+						return totalPrice;
+					},
+					settlement: function() {
 						this.show = true;
 						var totalCount = 0;
 						var len = this.goodsList.length;
@@ -163,8 +167,8 @@
 						}
 						return totalCount;
 					}
-					}
-				})
-			</script>
+				}
+			})
+		</script>
 	</body>
 </html>
